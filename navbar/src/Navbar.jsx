@@ -1,11 +1,15 @@
 // import "bootstrap/dist/css/bootstrap.css";
 // import { Link } from "react-router";
+import './navbar.scss';
 
 export default () => {
+  /* const style = {
+    color: '#fff'
+  } */
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="#" style={{color: '#fff'}}>
           Beacon
         </a>
         <button
@@ -21,21 +25,17 @@ export default () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+            <li className="nav-item" style={{color: '#fff'}}>
+              <a className="nav-link active" aria-current="page" href="#" style={{color: '#fff'}}>
                 Roofing
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="#" style={{color: '#fff'}}>
                 Siding & Gutters
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                a
-              </a>
-            </li>
+           
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -44,6 +44,7 @@ export default () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                style={{color: '#fff'}}
               >
                 Dropdown
               </a>
@@ -74,8 +75,9 @@ export default () => {
                 href="#"
                 tabindex="-1"
                 aria-disabled="true"
+                style={{color: '#fff'}}
               >
-                Disabled
+                Insulation
               </a>
             </li>
           </ul>
