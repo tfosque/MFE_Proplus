@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Navbar from "navbar/Navbar";
 import Footer from "footer/Footer";
 import Sidebar from "sidebar/Sidebar";
-import Orders from 'orders/Orders';
+import Orders from "orders/Orders";
 
 import "./index.css";
 
@@ -31,4 +31,4 @@ const App = () => (
     </div>
   </div>
 );
-ReactDOM.render( <App />, document.getElementById( "app" ) );
+ReactDOM.render(<App />, document.getElementById("app"));

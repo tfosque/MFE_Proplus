@@ -43,14 +43,13 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "host",
       filename: "remoteEntry.js",
-       remotes: {
+      remotes: {
         navbar: "navbar@http://localhost:3002/remoteEntry.js",
         footer: "footer@http://localhost:3009/remoteEntry.js",
-         sidebar: "sidebar@http://localhost:3003/remoteEntry.js",
-         proplus_content: "proplus_content@http://localhost:3005/remoteEntry.js",
-         orders: "orders@http://localhost:3007/remoteEntry.js",
+        sidebar: "sidebar@http://localhost:3003/remoteEntry.js",
+        orders: "orders@http://localhost:3007/remoteEntry.js",
       },
-       exposes: {
+      exposes: {
         "./BootstrapStyles": "bootstrap/dist/css/bootstrap.css",
       },
       shared: {
