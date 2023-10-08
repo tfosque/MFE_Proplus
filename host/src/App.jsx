@@ -4,6 +4,8 @@ import Navbar from "navbar/Navbar";
 import Footer from "footer/Footer";
 import Sidebar from "sidebar/Sidebar";
 import Orders from "orders/Orders";
+import axios from "axios";
+import Cms_Home from "cms_home/Cms_Home";
 
 import "./index.css";
 
@@ -15,8 +17,8 @@ const App = () => (
       </div>
     </div>
 
-    <div className="container-md">
-      <div className="row">
+    {/*  <div className="container-md">
+       <div className="row">
         <div className="col-3">
           <Sidebar />
         </div>
@@ -24,7 +26,10 @@ const App = () => (
           <Orders />
         </div>
       </div>
-    </div>
+      
+    </div> */}
+
+    <Cms_Home />
 
     <div className="col-12">
       <Footer />

@@ -49,6 +49,7 @@ module.exports = (_, argv) => ({
         sidebar: "sidebar@http://localhost:3003/remoteEntry.js",
         orders: "orders@http://localhost:3007/remoteEntry.js",
         cart: "cart@http://localhost:3008/remoteEntry.js",
+        cms_home: "cms_home@http://localhost:4000/remoteEntry.js",
       },
       exposes: {
         "./BootstrapStyles": "bootstrap/dist/css/bootstrap.css",
