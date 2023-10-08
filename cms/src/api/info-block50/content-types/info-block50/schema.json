@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "info_block50s",
+  "info": {
+    "singularName": "info-block50",
+    "pluralName": "info-block50s",
+    "displayName": "InfoBlock50"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "richtext"
+    },
+    "TextLinkTitle": {
+      "type": "string"
+    },
+    "TextLinkUrl": {
+      "type": "string"
+    }
+  }
+}

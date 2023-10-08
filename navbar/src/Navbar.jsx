@@ -1,14 +1,51 @@
-// import "bootstrap/dist/css/bootstrap.css";
-// import { Link } from "react-router";
+import React, { useEffect, useState } from "react";
+// import axios from "axios";
 
 export default () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Define the API endpoint URL
+    const apiUrl = "http://localhost:1337/api/menu-items/";
+
+    // Make the API call using the fetch API
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  const listItems = data.data.map((item) => (
+    <li className="nav-item" key={item.id}>
+      <a
+        className="nav-link active"
+        aria-current="page"
+        href="#"
+        style={{ color: "#fff" }}
+      >
+        {item.attributes.Label}
+      </a>
+    </li>
+  ));
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <div className="container-fluid">
-        {/*   <a className="navbar-brand" href="#" style={{ color: '#fff' }}>
-          Beacon
-        </a> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -21,129 +58,7 @@ export default () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item" style={{ color: '#fff' }}>
-              <a className="nav-link active" aria-current="page" href="#" style={{ color: '#fff' }}>
-                Roofing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#" style={{ color: '#fff' }}>
-                Siding & Gutters
-              </a>
-            </li>
-
-            {/*    <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                style={{ color: '#fff' }}
-              >
-                Waterproofing
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li> */}
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Insulation
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Waterproofing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Tools & Equipment
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Building Materials
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Solar Energy
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Industries
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                style={{ color: '#fff' }}
-              >
-                Brands
-              </a>
-            </li>
-          </ul>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">{listItems}</ul>
           <form className="d-flex">
             <input
               className="form-control form-control-sm me-2"
