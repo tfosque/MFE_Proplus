@@ -1,39 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Navbar from "navbar/Navbar";
-import Footer from "footer/Footer";
-import Sidebar from "sidebar/Sidebar";
-import Orders from "orders/Orders";
-import axios from "axios";
-import Cms_Home from "cms_home/Cms_Home";
-
+import { createRoot } from "react-dom/client";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+  browserHistory,
+} from "react-router-dom";
+import Home from "./Home";
 import "./index.css";
 
+const rootElement = document.getElementById("app");
+const root = createRoot(rootElement);
+
 const App = () => (
-  <div>
-    <div className="row">
-      <div className="col-12">
-        <Navbar />
-      </div>
-    </div>
-
-    {/*  <div className="container-md">
-       <div className="row">
-        <div className="col-3">
-          <Sidebar />
-        </div>
-        <div className="col-9">
-          <Orders />
-        </div>
-      </div>
-      
-    </div> */}
-
-    <Cms_Home />
-
-    <div className="col-12">
-      <Footer />
-    </div>
-  </div>
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="home" element={<Home />} />
+    </Routes>
+  </Router>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+//
+root.render(<App />, document.getElementById("app"));

@@ -5,10 +5,15 @@ export default () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  //
+  const [dataB, setDataB] = useState(null);
+  const [loadingB, setLoadingB] = useState(true);
+  const [errorB, setErrorB] = useState(null);
 
   useEffect(() => {
     // Define the API endpoint URL
     const apiUrl = "http://localhost:1337/api/menu-items/";
+    const becnData = "api.becn.com";
 
     // Make the API call using the fetch API
     fetch(apiUrl)
@@ -21,6 +26,26 @@ export default () => {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
+    //
+  }, []);
+  //
+  useEffect(() => {
+    // Define the API endpoint URL
+    const becnData = "https://www.becn.com/login";
+
+    // Make the API call using the fetch API
+    fetch(becnData)
+      .then((response) => response.json())
+      .then((data) => {
+        setDataB(data);
+        setLoadingB(false);
+        console.log("dataB:", { data });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoadingB(false);
+      });
+    //
   }, []);
 
   if (loading) {

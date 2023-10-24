@@ -183,7 +183,7 @@ export default function Cms_Home() {
           </div>
           <div className="col-4">
             <div className="article">
-              <h3 className>HANDS-ON PARTNERSHIP</h3>
+              <h3>HANDS-ON PARTNERSHIP</h3>
               <p className="para">
                 Build more with unique programs designed to help you get more
                 done
