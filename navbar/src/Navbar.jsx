@@ -13,7 +13,6 @@ export default () => {
   useEffect(() => {
     // Define the API endpoint URL
     const apiUrl = "http://localhost:1337/api/menu-items/";
-    const becnData = "api.becn.com";
 
     // Make the API call using the fetch API
     fetch(apiUrl)
@@ -31,10 +30,11 @@ export default () => {
   //
   useEffect(() => {
     // Define the API endpoint URL
-    const becnData = "https://www.becn.com/login";
+    const becnData = "https://www.api.becn.com/";
+    const jsonPlace = "https://jsonplaceholder.typicode.com/todos/";
 
     // Make the API call using the fetch API
-    fetch(becnData)
+    fetch(jsonPlace)
       .then((response) => response.json())
       .then((data) => {
         setDataB(data);
